@@ -8,6 +8,7 @@ class Product (models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     price = models.PositiveIntegerField()
+    image = models.ImageField()
     #created_at = models.DateTimeField(null=True, blank=True)
 
     def get_absolute_url(self):
