@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from products.views import products_list, product_details
 from django.shortcuts import redirect
+from django.conf import settings
+from django.conf.urls.static import static
 
 def home(request):
     return redirect('product_list')
@@ -25,5 +27,6 @@ def home(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('', include('products.urls'))
-]
+    path('', include('products.urls')),
+    path('accounts/', include('accounts.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
