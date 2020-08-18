@@ -32,3 +32,4 @@ def activate_email(request, uid, token):
         return redirect ('login')
     else:
         return HttpResponseBadRequest('Bad Token')
+
