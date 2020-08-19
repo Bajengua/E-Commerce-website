@@ -1,1 +1,13 @@
-<p>Confirmation email sent</p>
+{% extends 'base.html' %}
+
+{% block title %}Email confirmation{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="text-center mt-4">
+            <h1>Thank you {{ user.username  | capfirst }}!</h1>
+            <p>Confirmation email sent to {{ user.email }}</p>
+            <a class="btn btn-primary" href="{% url 'home' %}">Return to products</a>
+        </div>
+    </section>
+{% endblock %}

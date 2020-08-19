@@ -1,5 +1,28 @@
-<h1>Login</h1>
-<form method="POST">
-    {% csrf_token %} {{ form.as_p }}
-    <input type="submit" value='Login' />
-</form>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <section class="container py-4">
+        <h2 class="text-center">Login</h2>
+        <p class="text-center">
+            Please fill in your credentials to login to your account.
+        </p>
+        <div class="form">
+            <form class="col-lg-6 mx-auto form-group" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <input class="btn btn-primary" type="submit" value="Login">
+                <div class="mt-2">
+                    <a class="float-left" href="{% url 'signup' %}">Don't have an account?</a>
+                    <a class="float-right" href="{% url 'password_reset' %}">Reset password</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        addFormClasses()
+    </script>
+{% endblock %}
