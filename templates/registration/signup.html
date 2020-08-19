@@ -11,9 +11,8 @@
         <div class="form">
             <form class="col-lg-6 mx-auto form-group" action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ user_form.as_p }}
-                {{ profile_form.as_p }}
-                <input class="btn btn-primary" type="submit" value="{{ operation.title }}">
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Signup">
             </form>
             <div class="container">
                 <a class="float-right" href="{% url 'login' %}">Already have an account?</a>

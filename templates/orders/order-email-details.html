@@ -1,0 +1,16 @@
+Thank you {{ order.user.username | capfirst }} for choosing our products
+
+Order ref: {{ order.id }}
+Order date: {{ order.ordered_at }}
+
+Price: ${{ total_price.price__sum | floatformat:2 }}
+
+{% for product in products %}
+    Product ref: {{ product.id }} => {{ product.brand }}-{{ product.title }} => ${{ product.price | floatformat:2 }}
+{% endfor %}
+
+Address: {{ order.address }}
+
+See you soon!
+
+Best regards
