@@ -11,18 +11,28 @@ class Cart(models.Model):
     user = models.OneToOneField(User, related_name='cart', on_delete=models.CASCADE) # Deleting the cart while deleting the user 
     items = models.ManyToManyField(Product)
     updated_at = models.DateTimeField(auto_now=True) 
-
-
+    #total_price = products.aggregate(Sum('price'))
+    
+    def __str__(self):
+        return str(self.user)
+'''
+Model:
     def total_price(self):
         total = 0
         for item in self.items.all():
             total += item.price
-        
         return total
 
+View:
+    # Inside cart function 
+    total_price = user.cart.total_price()
 
-    def __str__(self):
-        return str(self.user)
+Template (cart.html)
+    {% if total_price> 0 %}
+    <p>${{ total_price | floatformat:2 }}</p>
+'''
+
+    
 
 
 @receiver(post_save, sender=User)

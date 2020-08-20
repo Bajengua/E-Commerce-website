@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Cart
 from products.models import Product
 
+from django.db.models import Sum
+
 # Create your views here.
 
 
@@ -21,20 +23,19 @@ def remove_from_cart(request, product_id):
     cart.items.remove(product)
 
     return redirect ('cart')
-"""
+
 @login_required
 def clear_cart(request):
-    product = get_object_or_404(Product)
-    cart = Cart.objects.get.all(user=request.user)
-    cart.items.remove(product)
-
+    cart = request.user.cart
+    cart.items.clear()
     return redirect ('cart')
-"""
+
 
 @login_required
 def cart (request):
     user = request.user
     products = user.cart.items.all()
-    total_price = user.cart.total_price()
+    total_price = products.aggregate(Sum('price'))
+    print (total_price)
     return render(request, 'carts/cart.html', {'products': products, 'total_price': total_price})
 
