@@ -13,7 +13,10 @@
         <p class="product-desc">
             {{product.description}}
         </p>
-        <a href="{%url 'add_to_cart' product_id=product.id%}">Add Product</a>
+        <div>
+            <a class="btn btn-outline-primary" id="add-product" href="{%url 'add_to_cart' product_id=product.id%}"  >Add Product</a>
+        </div>
+        
     </div>
 </section>
 {% endblock %}

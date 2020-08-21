@@ -460,6 +460,16 @@ span.helptext {
     line-height: 24px;
 }
 
+#add-product {
+    display: block;
+    width: 140px;
+    line-height: 40px;
+    font-size: 16px;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    margin: 40px auto;
+}
 .product-options{
     margin-top: 40px;
     width: 100%;
@@ -569,7 +579,7 @@ footer p{
 }
 
 .cart img {
-    width: 130px;
+    height: 100%;
 }
 
 .cart a {
@@ -609,6 +619,7 @@ footer p{
 .cart a.clear {
     background: #F44336;
 }
+
 
 
 /* Success Pages */

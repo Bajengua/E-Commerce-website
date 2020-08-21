@@ -39,3 +39,10 @@ def cart (request):
     print (total_price)
     return render(request, 'carts/cart.html', {'products': products, 'total_price': total_price})
 
+# id  is for oone button
+"""
+.product a.add-product {
+
+
+
+"""
