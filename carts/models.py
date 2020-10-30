@@ -7,14 +7,15 @@ from products.models import Product
 
 User = get_user_model()
 
+"""
 class CartItem(models.Model):
     item = models.ForeignKey(Cart , related_name='CartItem', on_delete=models.CASCADE)
     def __str__(self):
         return self.headline
-
+"""
 class Cart(models.Model):
     user = models.OneToOneField(User, related_name='cart', on_delete=models.CASCADE) # Deleting the cart while deleting the user 
-    items = models.ManyToManyField(Product, through=CartItem)
+    items = models.ManyToManyField(Product)
     updated_at = models.DateTimeField(auto_now=True) 
     #total_price = products.aggregate(Sum('price'))
     
